@@ -1,9 +1,9 @@
 const fs = require('fs');
 const parser = require('xml2json');
 
-function genereateFiles(amountOfFiles){
+function generateFiles(amountOfFiles, filename){
     return new Promise(function(resolve,reject){
-            fs.readFile( './300001.xml', function(err, data) {
+            fs.readFile( `./${filename}.xml`, function(err, data) {
                 const json = JSON.parse(parser.toJson(data, {reversible: true}));
                 for (let i =0; i < amountOfFiles; i ++) {
                     json.NewsML.NewsItem.NewsComponent.NewsLines.HeadLine.$t = `story no ${i}`;
@@ -23,4 +23,4 @@ function genereateFiles(amountOfFiles){
     });
 }
 
-genereateFiles(150);
+generateFiles(150, 3000012);

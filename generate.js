@@ -6,6 +6,7 @@ function generateFiles(amountOfFiles, filename){
             fs.readFile( `./${filename}.xml`, function(err, data) {
                 const json = JSON.parse(parser.toJson(data, {reversible: true}));
                 for (let i =0; i < amountOfFiles; i ++) {
+                    json.NewsML.NewsItem.Identification.NewsIdentifier.NewsItemId.$t = `10000${i}`;
                     json.NewsML.NewsItem.NewsComponent.NewsLines.HeadLine.$t = `story no ${i}`;
                     const stringified = JSON.stringify(json);
                     const xml = parser.toXml(stringified);
@@ -23,4 +24,4 @@ function generateFiles(amountOfFiles, filename){
     });
 }
 
-generateFiles(150, 3000012);
+generateFiles(150, 100001);

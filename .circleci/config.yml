@@ -1,9 +1,22 @@
 version: 2.1
 jobs:
   build:
-    docker:
+    docker: # Each job requires an executor in this case its docker, it can be docker, macos, or machine)
       - image: circleci/node:8.9.4 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
       - run: npm install
       - run: npm run test
+
+  build2:
+    docker:
+      - image: circleci/node:8.9.4
+    steps:
+      - echo Hello World Im running in parallel
+
+workflows:
+  version: 2
+  my_workflow:
+    jobs:
+      - build
+      - build2

@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  run_unit_tests:
     docker: # Each job requires an executor in this case its docker, it can be docker, macos, or machine)
       - image: circleci/node:8.9.4 # the primary container, where your job's commands are run
     steps:
@@ -8,7 +8,7 @@ jobs:
       - run: npm install
       - run: npm run test
 
-  build2:
+  run_hello_world:
     docker:
       - image: circleci/node:8.9.4
     steps:
@@ -19,5 +19,5 @@ workflows:
   version: 2
   my_workflow:
     jobs:
-      - build
-      - build2
+      - run_unit_tests
+      - run_hello_world

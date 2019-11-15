@@ -1,10 +1,10 @@
 const fs = require('fs');
 const parser = require('xml2json');
 
-function generateFiles(amountOfFiles, filename){
+function generateFiles(amountOfFiles, filename) {
     return new Promise(function(resolve,reject){
             fs.readFile( `./${filename}.xml`, function(err, data) {
-                const json = JSON.parse(parser.toJson(data, {reversible: true}));
+                const json = JSON.parse(parser.toJson(data, { reversible: true }));
                 let num = 0;
                 for (let i =0; i < amountOfFiles; i ++) {
                     // console.log(json.NewsML.NewsItem.NewsManagement.StatusWillChange.DateAndTime.$t)
@@ -21,9 +21,10 @@ function generateFiles(amountOfFiles, filename){
                     fs.writeFile(`10000${i}.xml`, xml, function(err, data) {
                         if (err) {
                             console.log(err);
+                            reject(err)
                         }
                         else {
-                            console.log('updated!');
+                            console.log(`updated file 10000${i}.xml`);
                         }
                     });
                 }
@@ -32,4 +33,6 @@ function generateFiles(amountOfFiles, filename){
     });
 }
 
-generateFiles(250, 100001);
+// generateFiles(250, 100001);
+
+module.exports = generateFiles;

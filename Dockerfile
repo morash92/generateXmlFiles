@@ -1,0 +1,5 @@
+FROM node:carbon
+
+EXPOSE 3000
+
+COPY

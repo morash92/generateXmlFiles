@@ -2,14 +2,16 @@
   "name": "filez",
   "version": "1.0.0",
   "description": "",
-  "main": "generate.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "xml2json": "^0.11.2",
-    "jest": "^24.9.0"
+    "express": "^4.17.1",
+    "jest": "^24.9.0",
+    "pug": "^2.0.4",
+    "xml2json": "^0.11.2"
   }
 }

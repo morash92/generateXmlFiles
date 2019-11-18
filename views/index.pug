@@ -1,0 +1,11 @@
+html
+    head
+        title= title
+body
+    h1= "Generate Files"
+    form(action="/new_movie" method="POST")
+    p Amount:
+        input(type="text" name="title" placeholder="e.g. 150")
+    p FileName:
+        input(type="text" name="year" placeholder="e.g. 10001")
+    button(type="button" onclick = "")

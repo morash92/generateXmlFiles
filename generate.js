@@ -33,6 +33,4 @@ function generateFiles(amountOfFiles, filename) {
     });
 }
 
-// generateFiles(250, 100001);
-
 module.exports = generateFiles;

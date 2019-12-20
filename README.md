@@ -6,3 +6,6 @@ generate xml files for testing skynews radio pagination (tested with node `v8.9.
 2) edit the amount of files you want and the file name as an integer inside as such: generateFiles(150, 100001)
 4) make sure you are in the root and run `node generate`
 5) you can now upload them files to test env
+
+# Run in docker
+To run this app in docker, run the the following command in the route: `docker-compose up`

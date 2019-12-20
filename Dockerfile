@@ -1,5 +1,11 @@
-FROM node:carbon
+FROM node:10.15.3
 
-EXPOSE 3000
+WORKDIR .
+COPY package*.json ./
 
-COPY
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
+CMD [ "npm", "start" ]

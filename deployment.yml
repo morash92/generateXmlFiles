@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: generatexmlfiles-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: generatexmlfiles
+    spec:     # pod spec
+      containers:
+        - name: generatexmlfiles
+          image: mycontainerregistryinstance.azurecr.io/generatexmlfilesapp:v1 # image we pushed
+          ports:
+            - containerPort: 8080
